@@ -12,3 +12,10 @@ This project implements a real-time Linux system profiler using eBPF to trace sy
 
 - Ubuntu 20.04+ (or any kernel 5.0+ with eBPF support)
 - `bpftrace`, `linux-headers`, and `stress-ng` (optional)
+
+## 🚀 Usage
+
+```bash
+sudo ./run_profiler.sh syscall_latency.bt
+```
+
