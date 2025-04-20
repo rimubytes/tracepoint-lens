@@ -1,0 +1,11 @@
+tracepoint:syscalls:sys_enter_execve
+{
+  @start[tid] = nsecs;
+}
+
+tracepoint:syscalls:sys_exit_execve
+/@start[tid]/
+{
+  @latency_ns = hist(nsecs - @start[tid]);
+  delete(@start[tid]);
+}
