@@ -1,0 +1,11 @@
+tracepoint:block:block_rq_issue
+{
+  @start[args->dev] = nsecs;
+}
+
+tracepoint:block:block_rq_complete
+/@start[args->dev]/
+{
+  @disk_latency = hist(nsecs - @start[args->dev]);
+  delete(@start[args->dev]);
+}
