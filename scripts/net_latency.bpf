@@ -1,0 +1,4 @@
+tracepoint:net:net_dev_queue
+{
+  @[args->name] = count();
+}
